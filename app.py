@@ -20,7 +20,7 @@ SCOPES = ['https://www.googleapis.com/auth/gmail.modify']
 TOKEN_FILE = 'token.pickle'
 
 # Gemini API setup
-GEMINI_API_KEY = 'AIzaSyA65XDAxDCBgkOQ38UJLwoVQbFTSs2DNCU'  # Replace with your real API key from Google AI Studio
+GEMINI_API_KEY = ''  # Replace with your real API key from Google AI Studio
 genai.configure(api_key=GEMINI_API_KEY)
 model = genai.GenerativeModel('gemini-1.5-flash')
 
