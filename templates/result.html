@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Digest Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #e0f7fa, #ffffff);
+            color: #333;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(90deg, #1976d2, #42a5f5);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        /* header img {
+            width: 150px;
+            vertical-align: middle;
+        } */
+        header h2 {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 2em;
+            vertical-align: middle;
+        }
+        .result-card {
+            background: white;
+            padding: 30px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .result-card:hover {
+            transform: translateY(-5px);
+        }
+        pre {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #444;
+        }
+        .error {
+            color: #d32f2f;
+            text-align: center;
+            padding: 15px;
+            background: #ffebee;
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-size: 0.9em;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 5px;
+        }
+        @media (max-width: 600px) {
+            .result-card { padding: 15px; }
+            pre { font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Digest Result</h2>
+    </header>
+    <div class="result-card">
+        {% if error %}
+            <div class="error">{{ error|safe }}</div>
+        {% elif digest %}
+            <pre>{{ digest }}</pre>
+        {% else %}
+            <div class="error">No digest generated. Please try again.</div>
+        {% endif %}
+    </div>
+    <div class="footer">Powered by Ascentt</div>
+</body>
+</html>

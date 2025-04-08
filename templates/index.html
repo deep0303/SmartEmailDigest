@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Email Digest Generator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #e0f7fa, #ffffff);
+            color: #333;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(90deg, #1976d2, #42a5f5);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header img {
+            width: 150px;
+            vertical-align: middle;
+        }
+        header h1 {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 2em;
+            vertical-align: middle;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        label {
+            font-weight: bold;
+            color: #1976d2;
+            margin-bottom: 10px;
+            display: block;
+        }
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #bbdefb;
+            border-radius: 6px;
+            font-size: 1em;
+            resize: vertical;
+            transition: border-color 0.3s;
+        }
+        textarea:focus {
+            border-color: #1976d2;
+            outline: none;
+            box-shadow: 0 0 5px rgba(25, 118, 210, 0.5);
+        }
+        button {
+            background: linear-gradient(90deg, #1976d2, #42a5f5);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background: linear-gradient(90deg, #1565c0, #2196f3);
+            transform: scale(1.05);
+        }
+        button:active {
+            transform: scale(0.95);
+        }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 4px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        .loading {
+            text-align: center;
+            color: #666;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-size: 0.9em;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 5px;
+        }
+        @media (max-width: 600px) {
+            .card { padding: 15px; }
+            textarea { font-size: 0.9em; }
+            button { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- <img src="https://xai.ai/assets/logo.png" alt="xAI Logo" onerror="this.src='https://via.placeholder.com/150?text=xAI';"> -->
+        <h1>Email Digest Generator</h1>
+    </header>
+    <div class="card">
+        <form method="post" action="/generate_digest">
+            <label for="combined_prompt">Combined Prompt 
+                <span class="tooltip"><span class="tooltiptext">Enter a prompt like 'Classify as Urgent or Non-Urgent and summarize in 30-50 words focusing on actions'.</span></span>
+            </label>
+            <textarea name="combined_prompt" rows="4" cols="50" placeholder="Classify as Urgent or Non-Urgent and summarize in 30-50 words focusing on actions" required></textarea>
+            <button type="submit">Generate Digest</button>
+        </form>
+    </div>
+    <div class="footer">Powered by Ascentt</div>
+</body>
+</html>
